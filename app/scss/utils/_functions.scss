@@ -2,6 +2,23 @@
 
 //font-size: rem(30)
 @function rem($pixels){
+    // If $pixels has a unit, throw an error
     // divide $pixels by 16 to return rems
-    @return math.div($pixels, 16) + rem;
+    @if math.is-unitless($pixels){
+        @return math.div($pixels, 16) + rem;
+    }
+    @else {
+        @error 'Don\'t use units when using the rem() function; only numbers';
+    }
+}
+
+@function em($pixels){
+    // If $pixels has a unit, throw an error
+    // divide $pixels by 16 to return rems
+    @if math.is-unitless($pixels){
+        @return math.div($pixels, 16) + em;
+    }
+    @else {
+        @error 'Don\'t use units when using the em() function; only numbers'
+    }
 }
