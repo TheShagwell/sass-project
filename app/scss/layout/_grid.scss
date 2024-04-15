@@ -46,13 +46,16 @@
     &__widget{
         padding: u.rem(16);
         // $widget: &;
-        &--magenta{
+
+        //! (&.magenta) are the helper or utility classes instead of the (&--magenta)
+        // But then the .html file most be a single name called (.green) instead of (grid__widget--magenta)
+        &.magenta{
             // @extend %widget;
             background-color: hsl(300, 100%, 30%);
         }
 
 
-        &--green {
+        &.green {
             // @extend #{$widget};
             // @extend %widget;
             background-color: hsl(120, 100%, 27%);
